@@ -56,7 +56,7 @@ PlasmoidItem {
     Timer {
         interval: 2000
         repeat: true
-        running: root.detailsVisible
+        running: root.detailsVisible && !root.plasmaStyle   // el estilo Plasma no tiene gráficas
         triggeredOnStart: true
         onTriggered: {
             root.cpuHistory = root.pushed(root.cpuHistory, root.cpu)
@@ -92,11 +92,15 @@ PlasmoidItem {
     }
 
     Plasmoid.icon: "utilities-system-monitor"
-    Plasmoid.backgroundHints: PlasmaCore.Types.NoBackground
+    // Estilo Plasma: fondo normal del tema (configurable). Moderno: dibuja su propia tarjeta.
+    readonly property bool plasmaStyle: Plasmoid.configuration.style === "plasma"
+    Plasmoid.backgroundHints: plasmaStyle
+        ? PlasmaCore.Types.DefaultBackground | PlasmaCore.Types.ConfigurableBackground
+        : PlasmaCore.Types.NoBackground
     toolTipMainText: "Monitor del sistema"
     toolTipSubText: "CPU " + Math.round(cpu) + "%  ·  RAM " + Math.round(ram) + "%"
 
     preferredRepresentation: inPanel ? compactRepresentation : fullRepresentation
-    compactRepresentation: CompactRepresentation {}
-    fullRepresentation: FullRepresentation {}
+    compactRepresentation: StyleLoader { base: "CompactRepresentation" }
+    fullRepresentation: StyleLoader { base: "FullRepresentation" }
 }

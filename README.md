@@ -18,6 +18,20 @@ Plasmoide que muestra CPU, memoria, temperatura, red y disco en una tarjeta oscu
 - Nombre del equipo y cuánto tiempo lleva encendido.
 - **En el panel:** dos mini medidores (CPU y RAM) con el porcentaje; clic para ver la tarjeta completa.
 
+## Estilos
+
+Clic derecho en el widget → **Configurar** → **Apariencia**:
+
+- **Plasma**: componentes y colores de tu tema (respeta claro/oscuro, el color de acento y el fondo normal de los widgets). Se ve como los widgets que trae KDE.
+- **Moderno** (por defecto): tarjeta oscura con efectos.
+
+Solo se carga el diseño elegido: cada estilo vive en su propio archivo (`FullRepresentationPlasma.qml`, `FullRepresentationModern.qml`, …) y `StyleLoader.qml` abre únicamente el que toca.
+
+### Agregar un estilo nuevo
+
+1. Crea `contents/ui/FullRepresentation<Nombre>.qml` y `contents/ui/CompactRepresentation<Nombre>.qml`. Toman los datos y acciones de `root` (definidos en `main.qml`).
+2. Agrega la opción en `contents/ui/configAppearance.qml` y su nombre en `StyleLoader.qml`.
+
 ## Por qué gasta poco
 
 - Lee los datos de `ksystemstats`, el servicio que ya usan los monitores de Plasma: no lanza procesos ni lee archivos por su cuenta.
