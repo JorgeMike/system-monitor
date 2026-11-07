@@ -1,0 +1,16 @@
+{
+    "KPackageStructure": "Plasma/Applet",
+    "KPlugin": {
+        "Authors": [
+            { "Name": "Miguel", "Email": "miguel.alvarado.dev@gmail.com" }
+        ],
+        "Category": "System Information",
+        "Description": "CPU, memoria, temperatura, red y disco en una tarjeta moderna y ligera",
+        "Icon": "utilities-system-monitor",
+        "Id": "local.systemmonitor",
+        "License": "MIT",
+        "Name": "Monitor del sistema",
+        "Version": "1.0"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0"
+}
