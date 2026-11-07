@@ -4,10 +4,9 @@ Plasmoide que muestra CPU, memoria, temperatura, red y disco en una tarjeta oscu
 
 ## Capturas
 
-<!-- Pon tus capturas en screenshots/ y ajusta los nombres -->
-| Escritorio | Panel |
+| Estilo moderno | Estilo Plasma |
 |---|---|
-| ![Monitor en el escritorio](screenshots/escritorio.png) | ![Monitor en el panel](screenshots/panel.png) |
+| ![Estilo moderno](screenshots/moderno.png) | ![Estilo Plasma](screenshots/plasma.png) |
 
 ## Qué muestra
 

@@ -14,9 +14,10 @@ Item {
     readonly property color fgDim: Qt.rgba(1, 1, 1, 0.55)
 
     Layout.minimumWidth: gu * 18
-    Layout.minimumHeight: gu * 17
+    // La altura sale del contenido, para que nada se corte
+    Layout.minimumHeight: content.implicitHeight + 2 * (full.gu + full.shadowMargin)
     Layout.preferredWidth: gu * 22
-    Layout.preferredHeight: gu * 19
+    Layout.preferredHeight: Layout.minimumHeight + gu * 2
 
     // Sombra (shader estático de Kirigami, se dibuja una vez)
     Kirigami.ShadowedRectangle {
@@ -50,6 +51,7 @@ Item {
     }
 
     ColumnLayout {
+        id: content
         anchors.fill: card
         anchors.margins: full.gu
         spacing: full.gu * 0.7
